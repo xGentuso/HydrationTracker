@@ -30,8 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8CF2FF292D8C42EC0029C2D1 /* HydrationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HydrationTracker.app; path = "/Users/ryanmota/Desktop/IOS2025/HydrationTracker/build/Debug-iphoneos/HydrationTracker.app"; sourceTree = "<absolute>"; };
-		8CF2FF2F2D8C42EC0029C2D1 /* HydrationTracker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "HydrationTracker Watch App.app"; path = "/Users/ryanmota/Desktop/IOS2025/HydrationTracker/build/Debug-watchos/HydrationTracker Watch App.app"; sourceTree = "<absolute>"; };
+		8CF2FF582D8C5C730029C2D1 /* HydrationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HydrationTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF2FF592D8C5C730029C2D1 /* HydrationTracker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HydrationTracker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -57,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				8CF2FF332D8C42EC0029C2D1 /* HydrationTracker Watch App */,
+				8CF2FF582D8C5C730029C2D1 /* HydrationTracker.app */,
+				8CF2FF592D8C5C730029C2D1 /* HydrationTracker Watch App.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,7 +81,7 @@
 			packageProductDependencies = (
 			);
 			productName = HydrationTracker;
-			productReference = 8CF2FF292D8C42EC0029C2D1 /* HydrationTracker.app */;
+			productReference = 8CF2FF582D8C5C730029C2D1 /* HydrationTracker.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		8CF2FF2E2D8C42EC0029C2D1 /* HydrationTracker Watch App */ = {
@@ -101,7 +103,7 @@
 			packageProductDependencies = (
 			);
 			productName = "HydrationTracker Watch App";
-			productReference = 8CF2FF2F2D8C42EC0029C2D1 /* HydrationTracker Watch App.app */;
+			productReference = 8CF2FF592D8C5C730029C2D1 /* HydrationTracker Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

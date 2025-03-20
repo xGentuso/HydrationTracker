@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var store: HydrationStore
+    @EnvironmentObject var reminderManager: ReminderManager
     @State private var selectedTab = 0
     
     var body: some View {
@@ -23,12 +24,21 @@ struct ContentView: View {
                 .tag(1)
                 .environmentObject(store)
             
+            // Reminders view
+            RemindersView()
+                .tag(2)
+                .environmentObject(reminderManager)
+            
             // Settings view
             SettingsView()
-                .tag(2)
+                .tag(3)
                 .environmentObject(store)
         }
         .tabViewStyle(PageTabViewStyle())
+        .onAppear {
+            // Register the store with the notification delegate
+            NotificationDelegate.shared.registerStore(store)
+        }
     }
 }
 
@@ -36,5 +46,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(HydrationStore())
+            .environmentObject(ReminderManager())
     }
 }
