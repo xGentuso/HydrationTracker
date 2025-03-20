@@ -8,10 +8,14 @@
 import SwiftUI
 
 @main
-struct HydrationTracker_Watch_AppApp: App {
+struct HydrationTrackerApp: App {
+    // Create the store as a StateObject so it's preserved across view updates
+    @StateObject private var store = HydrationStore()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(store)
         }
     }
 }

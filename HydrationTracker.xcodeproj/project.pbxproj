@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		8CF2FF302D8C42EC0029C2D1 /* HydrationTracker Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8CF2FF2F2D8C42EC0029C2D1 /* HydrationTracker Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		8CF2FF312D8C42EC0029C2D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,7 +23,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				8CF2FF302D8C42EC0029C2D1 /* HydrationTracker Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,8 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8CF2FF292D8C42EC0029C2D1 /* HydrationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HydrationTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CF2FF2F2D8C42EC0029C2D1 /* HydrationTracker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HydrationTracker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF2FF292D8C42EC0029C2D1 /* HydrationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HydrationTracker.app; path = "/Users/ryanmota/Desktop/IOS2025/HydrationTracker/build/Debug-iphoneos/HydrationTracker.app"; sourceTree = "<absolute>"; };
+		8CF2FF2F2D8C42EC0029C2D1 /* HydrationTracker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "HydrationTracker Watch App.app"; path = "/Users/ryanmota/Desktop/IOS2025/HydrationTracker/build/Debug-watchos/HydrationTracker Watch App.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -62,17 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				8CF2FF332D8C42EC0029C2D1 /* HydrationTracker Watch App */,
-				8CF2FF2A2D8C42EC0029C2D1 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		8CF2FF2A2D8C42EC0029C2D1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8CF2FF292D8C42EC0029C2D1 /* HydrationTracker.app */,
-				8CF2FF2F2D8C42EC0029C2D1 /* HydrationTracker Watch App.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,7 +132,7 @@
 			mainGroup = 8CF2FF222D8C42EC0029C2D1;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 8CF2FF2A2D8C42EC0029C2D1 /* Products */;
+			productRefGroup = 8CF2FF222D8C42EC0029C2D1;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
