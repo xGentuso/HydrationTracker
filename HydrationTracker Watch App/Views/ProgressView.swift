@@ -9,6 +9,7 @@ import SwiftUI
 struct ProgressView: View {
     @EnvironmentObject var store: HydrationStore
     @State private var animatedProgress: Double = 0
+    @State private var showResetTodayConfirmation = false
     
     // Computed color based on progress
     var progressColor: Color {
@@ -109,7 +110,48 @@ struct ProgressView: View {
                         quickAddButton(amount: 16, icon: "4.circle.fill")
                     }
                 }
+                .padding(.bottom, 10)
+                
+                // Reset today button
+                Button(action: {
+                    showResetTodayConfirmation = true
+                }) {
+                    HStack {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .font(.system(size: 14))
+                        Text("Reset Today")
+                            .font(.system(size: 14, weight: .medium))
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(
+                        Capsule()
+                            .stroke(Color.secondary.opacity(0.5), lineWidth: 1)
+                    )
+                    .foregroundColor(.secondary)
+                }
                 .padding(.bottom, 20)
+                .alert(isPresented: $showResetTodayConfirmation) {
+                    Alert(
+                        title: Text("Reset Today's Progress"),
+                        message: Text("Are you sure you want to clear all of today's hydration entries?"),
+                        primaryButton: .destructive(Text("Reset")) {
+                            // Remove today's entries
+                            for entry in store.todayEntries {
+                                store.removeEntry(entry)
+                            }
+                            
+                            // Reset animated progress to zero
+                            withAnimation {
+                                animatedProgress = 0
+                            }
+                            
+                            // Haptic feedback
+                            WKInterfaceDevice.current().play(.success)
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
             }
         }
         .onAppear {
@@ -121,7 +163,7 @@ struct ProgressView: View {
                 }
             }
         }
-        .onChange(of: store.todayProgress) { newValue in
+        .onChange(of: store.todayProgress) { _, newValue in
             withAnimation {
                 animatedProgress = newValue
             }

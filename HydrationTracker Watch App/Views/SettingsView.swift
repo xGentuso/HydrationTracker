@@ -12,6 +12,7 @@ struct SettingsView: View {
     @State private var goalAmount: Double
     @State private var showConfirmation = false
     @State private var showSavedCheckmark = false
+    @State private var showResetConfirmation = false
     
     // Initialize state from the environment object
     init() {
@@ -169,6 +170,45 @@ struct SettingsView: View {
                                 for entry in store.todayEntries {
                                     store.removeEntry(entry)
                                 }
+                                
+                                // Haptic feedback
+                                WKInterfaceDevice.current().play(.success)
+                            },
+                            secondaryButton: .cancel()
+                        )
+                    }
+                    
+                    // Reset all data button
+                    Button(action: {
+                        // Show confirmation first
+                        showResetConfirmation = true
+                    }) {
+                        HStack {
+                            Image(systemName: "arrow.counterclockwise.circle")
+                                .font(.system(size: 14))
+                            
+                            Text("Reset All Data")
+                                .font(.system(size: 15, weight: .medium))
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.red.opacity(0.8), lineWidth: 1)
+                                .background(Color.red.opacity(0.1))
+                                .cornerRadius(12)
+                        )
+                        .foregroundColor(.red)
+                    }
+                    .padding(.horizontal, 15)
+                    .padding(.top, 8)
+                    .alert(isPresented: $showResetConfirmation) {
+                        Alert(
+                            title: Text("Reset All Hydration Data"),
+                            message: Text("Are you sure you want to delete ALL hydration entries and reset to default settings? This cannot be undone."),
+                            primaryButton: .destructive(Text("Reset Everything")) {
+                                // Call the reset function
+                                store.resetAllData()
                                 
                                 // Haptic feedback
                                 WKInterfaceDevice.current().play(.success)

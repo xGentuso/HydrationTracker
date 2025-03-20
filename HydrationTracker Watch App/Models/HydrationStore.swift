@@ -65,6 +65,22 @@ class HydrationStore: ObservableObject {
         saveSettings()
     }
     
+    // Reset all hydration data
+        func resetAllData() {
+            // Clear all entries
+            entries = []
+            
+            // Reset to default daily goal (64 oz)
+            dailyGoal = 64.0
+            
+            // Save the changes to persistent storage
+            saveEntries()
+            saveSettings()
+            
+            // Provide haptic feedback
+            WKInterfaceDevice.current().play(.notification)
+        }
+    
     // MARK: - Simple Persistence using UserDefaults
     
     // Save entries to UserDefaults
